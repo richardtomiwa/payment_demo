@@ -1,16 +1,3 @@
-<?php
-$products=[
-["name"=>"tomiwa", "age"=>"20"],
-["name"=>"tomiwa", "age"=>"20"],
-["name"=>"tomiwa", "age"=>"20"],
-];
-     $a=array_keys($products);
-     $array_to_question_marks = implode(',', array_map("intval", $a));
-     print_r($a);
-     print_r($products);
-
-     echo  $array_to_question_marks ;
-?>
 
 <!DOCTYPE html>
 <html lang="en">
