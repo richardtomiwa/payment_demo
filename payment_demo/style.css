@@ -48,11 +48,22 @@ div.form-submit>button[type="submit"] {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+ 
 }
+
+li{
+   list-style: none;
+}
+
 body{
   width: 100%;
   overflow-x: hidden;
   position: relative;
+}
+
+.no-scroll{
+  height: 100vh;
+  overflow:hidden ;
 }
 
 nav{
@@ -111,8 +122,8 @@ div.sidebar{
     background-image: transparent;
     left: 0px;
     top: 0px;
-    z-index: 1;
-    transition: 0.5s;
+    z-index: 4;
+    transition: 0.2s;
     height: 100vh;
   backdrop-filter: brightness(90%);
 
@@ -142,6 +153,7 @@ display: inline;
   color: white;
   width: 100%;
   text-align: center;
+  font-family:"Montserrat Alternates", sans-serif ;
 }
 
 div.category>form{
@@ -213,28 +225,28 @@ div.invisible_section{
 
 #collapsed>.x-shape::before {
 height: 0%;
-transition: 0.35s;
+transition: 0.1s;
 }
 
 #collapsed>.x-shape::after {
   height: 0%;
-  transition: 0.5s;
+  transition: 0.1s;
   }
 
   #expanded>.x-shape::before {
     height: 70%;
-    transition: 0.35s;
-    transition-delay: 0.4s;
+    transition: 0.1s;
+    transition-delay: 0.1s;
     }
     
     #expanded>.x-shape::after {
       height: 70%;
-      transition: 0.35s;
-      transition-delay: 0.4s;
+      transition: 0.1s;
+      transition-delay: 0.1s;
       }
 
 #inactive{
- left: -100%;
+ left: -100vw;
 }
 
 .sidenav_toggle{
@@ -249,36 +261,36 @@ transition: 0.35s;
   width: 50px;
   height: 5px;
   background-color: black;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .sidenav_toggle>span:nth-of-type(2){
   width: 50px;
   height: 5px;
   background-color: black;
-  transition: 0.35s;
+  transition: 0.07s;
 }
 
 .sidenav_toggle>span:nth-of-type(3){
   width: 50px;
   height: 5px;
   background-color: black;
-  transition: 0.25s;
+  transition: 0.05s;
 }
 
 #toggle-on>span:nth-of-type(1){
   width: 0px;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 #toggle-on>span:nth-of-type(2){
   width: 0px;
-  transition: 0.35s;
+  transition: 0.07s;
 }
 
 #toggle-on>span:nth-of-type(3){
   width: 0px;
-  transition: 0.25s;
+  transition: 0.05s;
 }
 
 
@@ -383,6 +395,9 @@ header.index-header>h2{
   font-size: 32px;
 }
 
+
+
+
 div.background{
   filter: brightness(0.4);
   background-color: #a0533d;
@@ -395,6 +410,318 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 object-position: top center;
+animation: fadein 0.5s forwards;
+
+}
+
+main, section.new{
+  margin-top: 80px;
+position: relative;
+}
+
+
+
+.section-header{
+  font-family: "Funnel Display", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.card-container, .new-card-container{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+
+  padding: 10px;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 20px;
+  scroll-behavior: smooth;
+  margin-bottom: 0px;
+  
+}
+
+
+
+.card-container::-webkit-scrollbar, .new-card-container::-webkit-scrollbar{
+display: none;
+}
+
+.card{
+  max-width: 400px;
+  min-width: 400px;
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+position: relative;
+}
+
+.card-description{
+  font-size: 18px;
+  width: 100%;
+  line-height: 25px;
+  max-height: 50px;
+  text-overflow: ellipsis;
+  overflow-y: hidden;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a.card-wrapper{
+  text-decoration: none;
+  color: black;
+
+}
+
+.card-image{
+  width: 350px;
+  border-radius: 8px;
+  aspect-ratio: 1/1;
+  filter: brightness(0.5);
+}
+
+button.card-button{
+width: 100%;
+border: 0px;
+outline: 0px;
+background-color: transparent;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+a.view-all{
+  width: 200px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  font-family:"Montserrat Alternates", sans-serif ;
+  font-weight: 600;
+}
+
+#new-image{
+  filter: brightness(1);
+}
+
+.card-overlay{
+position: absolute;
+color: white;
+width:90% ;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+top: 25%;
+font-family:"Montserrat Alternates", sans-serif ;
+
+}
+
+.scroll-controller{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: absolute;
+  top: 45%;
+}
+
+#right,#left,#new-left, #new-right,#testimony-right,#testimony-left{
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  background-color: black;
+  color: white;
+outline: 0px;
+border-radius:50% ;
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#right>svg,#left>svg,#new-left>svg, #new-right>svg,#testimony-right>svg, #testimony-left>svg{
+  width: 40px;
+  height: 40px;
+}
+
+#right,#new-right,#testimony-right{
+  right: 3px;
+}
+
+#left,#new-left,#testimony-left{
+  left: 3px;
+}
+
+ul.products-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  gap: 20px;
+  scroll-behavior: smooth;
+  margin-bottom: 0px;
+}
+
+
+section.testimonies{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 70vh;
+
+  background-color: black;
+  color: white;
+  margin-top: 10vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family:"Montserrat Alternates", sans-serif ;
+}
+
+ul.testimonies-wrapper{
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  min-height: 100%;
+padding: 30px;
+gap: 30px;
+scroll-behavior: smooth;
+
+}
+
+ul.testimonies-wrapper::-webkit-scrollbar{
+  display: none;
+}
+
+li.testimony{
+  display: flex;
+  flex-direction: column;
+  min-height: 35vh;
+  max-width: 400px;
+  background-color: white;
+  color: black;
+  min-width: 400px;
+  padding: 30px;
+  gap: 20px;
+  border-radius: 12px;
+  line-height: 50px;
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+}
+
+li.testimony>h4{
+  line-height: 35px;
+}
+
+section.testimonies>.scroll-controller{
+  top: 85%;
+}
+
+
+#testimony-right,#testimony-left{
+  background: transparent;
+}
+
+
+
+        li.single-product{
+            display:flex;
+            width:100%;
+            justify-content:center;
+            align-items:center;
+            gap:30px;
+            height:95vh;
+            font-size:20px;
+            margin-bottom: 40px;
+        }
+
+         li.single-product>img{
+            width:45%;
+         }
+
+        form.product-form{
+            display:flex;
+            gap:10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form.product-form>div{
+          width: 100%;
+          display: flex;
+        }
+
+        div
+
+        .product-form>button{
+            padding:10px;
+            border:0px;
+            color:white;
+            background:black;
+            border-radius:8px;
+                        font-size:20px;
+        }
+
+        .product-form>div>fieldset>input{
+            padding:10px;
+            border:1px solid black;
+            color:black;
+            background:white;
+            border-radius:8px;
+            width:70%;
+            text-align:center;
+                        font-size:20px;
+        }
+
+        div.prod{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            width: 45%;
+        }
+
+        input#size{
+          width: 30px;
+          height: 30px;
+          margin-right: 5px;
+          margin-left: 10px;
+          
+        }
+
+        fieldset{
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          border: 0px;
+          width: 100%;
+
+        }
+
+                fieldset.quantity{
+
+          justify-content: center;
+
+
+        }
+
+
+
+
+
+@keyframes fadein {
+  from{
+    opacity: 0;
+    transform: scale(0)
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+
+  }
 }
 
 @media only screen and (max-width:768px) {
@@ -454,6 +781,13 @@ a.cart>p{
 }
 
 /* index style starts */
+header.index-header, div.background{
+  
+  min-width: 100vw;
+  height: 88vh;
+  display: flex;
+  color: white;
+}
 
 header.index-header>h2{
   font-size: 18px;
@@ -463,4 +797,68 @@ header.index-header>h4{
   font-size: 18px;
 }
 
+
+
+.card-image{
+  width: 95%;
+}
+
+.card{
+  max-height: 40vh;
+  max-width: 40vw;
+  min-width: 40vw;
+
+}
+
+.card-description{
+  font-size: 15px;
+}
+
+ul.testimonies-wrapper{
+  justify-content: start;
+  padding: 10px;
+}
+
+li.testimony{
+min-width: 90vw;
+max-width: 90vw;
+
+
+
+}
+
+li.testimony>h4{
+ font-size: 18px;
+}
+
+.testimonies>h2{
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+section.testimonies>.scroll-controller{
+  top: 90%;
+}
+
+        div.prod{
+
+            width: 95%;
+            align-items: center;
+            justify-content: center;
+        }
+
+                li.single-product{
+            flex-direction: column;
+            text-align: center;
+        }
+
+         li.single-product>img{
+            width:70%;
+          
+         }
+
+
+          form.product-form{
+            width: 100%;
+        }
 }
